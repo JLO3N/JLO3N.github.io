@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Werknemer kloksysteem</title>
+    <link rel="stylesheet" href="styles.css">
+    <a href="https://forms.gle/eJhpQReKnSER8Cqk7">Hier Inklokken/Uitklokken</a>
+    <link rel="code" href="code.txt">
+  </head>
+  <body>
+    <div class="clocking-box">
+        <h2>In/Uit klokken</h2>
+        <form>
+          <label for="full-name">Volledige naam:</label>
+          <input type="text" id="full-name" name="full-name" required>
+          <div class="button-container">
+                <button type="button" id="clock-in-btn">Inklokken</button>
+                <button type="button" id="clock-out-btn">Uitklokken</button>
+          </div>
+          <div class="timer-container">
+            <span class="timer-label">Timer:</span>
+            <span id="timer" class="timer">00:00:00</span>
+          </div>
+        </form>
+      </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
