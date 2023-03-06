@@ -29,24 +29,17 @@ clockOutBtn.addEventListener("click", function() {
   } else {
     fullNameInput.reportValidity();
   }
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://script.google.com/macros/s/AKfycbzKpqI4rDVTtV4GLWSczL9DvFYf6kwINgHXdlwiUT_vLWHi2VPo5I6_iWQngzqcTBzf/exec?gid=0");
-  xhr.setRequestHeader("Accept", "application/json");
-  xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.setRequestHeader('Access-Control-Allow-Origin', '*')
-  
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) {
-      console.log(xhr.status);
-      console.log(xhr.responseText);
-    }};
-  
-  let data = `{
-    "Clock In": 12
-  }`;
-  
-  xhr.send(data);
+  fetch("https://script.google.com/macros/s/AKfycbzKpqI4rDVTtV4GLWSczL9DvFYf6kwINgHXdlwiUT_vLWHi2VPo5I6_iWQngzqcTBzf/exec?gid=0", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Acces-Control-Allow-Origin':'*',
+      "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+    },
+    body: `{
+       "Clock In": 2,
+      }`,
+    });
 });
 
 function updateTimer() {
@@ -65,5 +58,4 @@ function formatTime(time) {
     return time;
   }
 }
-
 
